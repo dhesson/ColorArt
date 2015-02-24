@@ -1,27 +1,28 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 20
+    compileSdkVersion 21
     buildToolsVersion "21.1.2"
 
     defaultConfig {
         minSdkVersion 7
-        targetSdkVersion 20
-        versionName project.VERSION_NAME
-        versionCode Integer.parseInt(project.VERSION_CODE)
+        targetSdkVersion 21
+        //versionName project.VERSION_NAME
+        //versionCode Integer.parseInt(project.VERSION_CODE)
     }
 
     buildTypes {
         release {
             minifyEnabled false
-            proguardFile 'proguard-rules.txt'
-            proguardFile getDefaultProguardFile('proguard-android-optimize.txt')
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.txt'
         }
+    }
+
+    lintOptions {
+        abortOnError false
     }
 }
 
 dependencies {
-
 }
-
-apply from: '../maven_push.gradle'
+//apply from: '../maven_push.gradle'
